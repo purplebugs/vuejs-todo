@@ -1,7 +1,10 @@
 <template>
   <v-container padding>
     <ul>
-      <li v-for="task in tasks">{{ task }}</li>
+      <li v-for="task in tasks">
+        <div>{{ task.name }}</div>
+        <small>{{ task.dueDate }} @ {{ task.dueTime }}</small>
+      </li>
     </ul>
   </v-container>
 </template>
@@ -10,7 +13,23 @@
 export default {
   data() {
     return {
-      tasks: ["Go to shop", "Get bananas", "Get apples"],
+      tasks: [
+        {
+          name: "Go to shop",
+          dueDate: "2021/06/12",
+          dueTime: "18:30",
+        },
+        {
+          name: "Get bananas",
+          dueDate: "2021/07/25",
+          dueTime: "14:30",
+        },
+        {
+          name: "Get apples",
+          dueDate: "2021/07/26",
+          dueTime: "16:00",
+        },
+      ],
     };
   },
 };
