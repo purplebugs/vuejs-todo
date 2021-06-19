@@ -5,11 +5,12 @@
         v-for="(task, index) in tasks"
         :task="task"
         :index="index"
-        :key="task.index"
+        :key="task.id"
       >
         {{ task.name }}
       </task>
     </ul>
+    add key to v-for for good practise
   </v-container>
 </template>
 
@@ -19,16 +20,19 @@ export default {
     return {
       tasks: [
         {
+          id: 1,
           name: "Go to shop",
           dueDate: "2021/06/12",
           dueTime: "18:30",
         },
         {
+          id: 2,
           name: "Get bananas",
           dueDate: "2021/07/25",
           dueTime: "14:30",
         },
         {
+          id: 3,
           name: "Get apples",
           dueDate: "2021/07/26",
           dueTime: "16:00",
