@@ -1,9 +1,10 @@
 <template>
   <v-container padding>
     <ul>
-      <li v-for="task in tasks">
-        <div>{{ task.name }}</div>
+      <li v-for="(task, index) in tasks">
+        <div>{{ task.name }} {{ index }}</div>
         <small>{{ task.dueDate }} @ {{ task.dueTime }}</small>
+        <button @click="deleteTask(index)">X</button>
       </li>
     </ul>
   </v-container>
@@ -31,6 +32,11 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    deleteTask(index) {
+      this.tasks.splice(index, 1);
+    },
   },
 };
 </script>
