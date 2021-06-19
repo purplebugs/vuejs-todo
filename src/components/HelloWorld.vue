@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import Task from "@/components/Task.vue";
+
 export default {
   data() {
     return {
@@ -37,6 +39,9 @@ export default {
     deleteTask(index) {
       this.tasks.splice(index, 1);
     },
+  },
+  components: {
+    task: Task,
   },
 };
 </script>
