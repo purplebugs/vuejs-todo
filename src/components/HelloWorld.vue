@@ -10,7 +10,6 @@
         {{ task.name }}
       </task>
     </ul>
-    add key to v-for for good practise
   </v-container>
 </template>
 
