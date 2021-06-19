@@ -8,7 +8,8 @@
       @keyup.esc="clearMessage"
       @keyup.enter="alertMessage"
       v-autofocus
-      :style="errorStyle"
+      :class="{ error: message.length > 22 }"
+      ref="messageInput"
     />
 
     <button @click="clearMessage">Clear</button>
@@ -76,29 +77,13 @@ export default {
       },
     },
   },
-  beforeCreate() {
-    console.log("beforeCreate");
-  },
-  created() {
-    console.log("created");
-  },
-  beforeMount() {
-    console.log("beforeMount");
-  },
+
   mounted() {
-    console.log("mounted");
-  },
-  beforeUpdate() {
-    console.log("beforeUpdate");
-  },
-  updated() {
-    console.log("updated");
-  },
-  beforeDestroy() {
-    console.log("beforeDestroy");
-  },
-  destroyed() {
-    console.log("destroyed");
+    console.log(this.$refs);
+    // not a good idea to use $refs where there is reactive data involved like this
+    // because refs overrides the work we did with $refs
+    // would use $refs for form validation or autofocus fields
+    this.$refs.messageInput.className = "green";
   },
 };
 </script>
