@@ -6,7 +6,12 @@
       @keyup.enter="alertMessage"
     />
     <button @click="clearMessage">Clear</button>
-    <h5>{{ message }}</h5>
+    <h5 v-if="message.length" class="border-grey">
+      {{ message }}
+    </h5>
+    <h6 v-else>
+      No message entered!
+    </h6>
   </v-container>
 </template>
 
@@ -27,3 +32,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.border-grey {
+  border: 1px solid grey;
+}
+</style>
