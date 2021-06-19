@@ -1,7 +1,12 @@
 <template>
   <v-container padding>
     <ul>
-      <task v-for="(task, index) in tasks" :task="task" :index="index">
+      <task
+        v-for="(task, index) in tasks"
+        :task="task"
+        :index="index"
+        :key="task.index"
+      >
         {{ task.name }}
       </task>
     </ul>
