@@ -1,6 +1,10 @@
 <template>
   <v-container padding>
-    <input v-model="message" />
+    <input
+      v-model="message"
+      @keyup.esc="clearMessage"
+      @keyup.enter="alertMessage"
+    />
     <button @click="clearMessage">Clear</button>
     <h5>{{ message }}</h5>
   </v-container>
@@ -16,6 +20,9 @@ export default {
   methods: {
     clearMessage() {
       this.message = "";
+    },
+    alertMessage() {
+      alert(this.message);
     },
   },
 };
