@@ -3,9 +3,13 @@
     <div>{{ task.name }} {{ index }}</div>
     <small>{{ task.dueDate }} @ {{ task.dueTime }}</small>
     <button @click="deleteTask(index)">X</button>
-  </li></template
->
+  </li>
+</template>
 
-<script></script>
+<script>
+export default {
+  props: ["task", "index"],
+};
+</script>
 
 <style></style>

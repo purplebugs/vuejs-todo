@@ -1,11 +1,7 @@
 <template>
   <v-container padding>
     <ul>
-      <li v-for="(task, index) in tasks">
-        <div>{{ task.name }} {{ index }}</div>
-        <small>{{ task.dueDate }} @ {{ task.dueTime }}</small>
-        <button @click="deleteTask(index)">X</button>
-      </li>
+      <task v-for="(task, index) in tasks" :task="task" :index="index"></task>
     </ul>
   </v-container>
 </template>
@@ -39,7 +35,7 @@ export default {
     },
   },
   components: {
-    task: require("@/components/Task.vue"),
+    task: require("@/components/Task.vue").default,
   },
 };
 </script>
