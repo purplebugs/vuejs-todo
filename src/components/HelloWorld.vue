@@ -42,7 +42,6 @@ export default {
     // a lot more power than filters since you have access to everything within export
     // mostly will be using computed instead of filters
     messageUppercase() {
-      console.log("messageUppercase was fired");
       return this.message.toUpperCase() + this.counter;
     },
     errorStyle() {
@@ -76,6 +75,30 @@ export default {
         el.focus();
       },
     },
+  },
+  beforeCreate() {
+    console.log("beforeCreate");
+  },
+  created() {
+    console.log("created");
+  },
+  beforeMount() {
+    console.log("beforeMount");
+  },
+  mounted() {
+    console.log("mounted");
+  },
+  beforeUpdate() {
+    console.log("beforeUpdate");
+  },
+  updated() {
+    console.log("updated");
+  },
+  beforeDestroy() {
+    console.log("beforeDestroy");
+  },
+  destroyed() {
+    console.log("destroyed");
   },
 };
 </script>
