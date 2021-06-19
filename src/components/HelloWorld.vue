@@ -11,8 +11,6 @@
 </template>
 
 <script>
-import Task from "@/components/Task.vue";
-
 export default {
   data() {
     return {
@@ -41,7 +39,7 @@ export default {
     },
   },
   components: {
-    task: Task,
+    task: require("@/components/Task.vue"),
   },
 };
 </script>
