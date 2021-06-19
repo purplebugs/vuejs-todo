@@ -8,7 +8,7 @@
       @keyup.esc="clearMessage"
       @keyup.enter="alertMessage"
       v-autofocus
-      v-bind:class="{ error: message.length > 22 }"
+      :class="{ error: message.length > 22 }"
     />
 
     <button @click="clearMessage">Clear</button>
