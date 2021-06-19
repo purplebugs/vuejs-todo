@@ -19,6 +19,8 @@
     <hr />
 
     <p>Uppercase message: {{ messageUppercase }}</p>
+
+    <p>Lowercase message: {{ message | messageLowercase }}</p>
   </v-container>
 </template>
 
@@ -31,9 +33,11 @@ export default {
     };
   },
   computed: {
+    // a lot more power than filters since you have access to everything within export
+    // mostly will be using computed instead of filters
     messageUppercase() {
       console.log("messageUppercase was fired");
-      return this.message.toUpperCase();
+      return this.message.toUpperCase() + this.counter;
     },
   },
   methods: {
@@ -42,6 +46,14 @@ export default {
     },
     alertMessage() {
       alert(this.message);
+    },
+  },
+  filters: {
+    // a filter is a method which accepts a value
+    // no access to methods and data within export
+    // filters are good for formatting dates
+    messageLowercase(value) {
+      return value.toLowerCase();
     },
   },
 };
