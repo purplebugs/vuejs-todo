@@ -7,6 +7,7 @@
       v-model="message"
       @keyup.esc="clearMessage"
       @keyup.enter="alertMessage"
+      v-autofocus
     />
     <button @click="clearMessage">Clear</button>
     <h5 v-if="message.length" class="border-grey">
@@ -54,6 +55,13 @@ export default {
     // filters are good for formatting dates
     messageLowercase(value) {
       return value.toLowerCase();
+    },
+  },
+  directives: {
+    autofocus: {
+      inserted(el) {
+        el.focus();
+      },
     },
   },
 };
