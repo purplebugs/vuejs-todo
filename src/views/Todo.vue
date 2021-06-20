@@ -61,15 +61,17 @@ export default {
   },
   methods: {
     addTask() {
-      let newTask = {
-        id: Date.now(),
-        title: this.newTaskTitle,
-        done: false,
-      };
+      if (this.newTaskTitle) {
+        let newTask = {
+          id: Date.now(),
+          title: this.newTaskTitle,
+          done: false,
+        };
 
-      // Add to start of array to display by newest first
-      this.tasks.unshift(newTask);
-      this.newTaskTitle = "";
+        // Add to start of array to display by newest first
+        this.tasks.unshift(newTask);
+        this.newTaskTitle = "";
+      }
     },
     doneTask(id) {
       let task = this.tasks.filter((task) => task.id === id)[0];
