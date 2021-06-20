@@ -1,5 +1,16 @@
 <template>
   <div class="home">
+    <v-text-field
+      v-model="newTaskTitle"
+      @click:append="addTask"
+      @keyup.enter="addTask"
+      class="pa-3"
+      outlined
+      label="Add Task"
+      append-icon="mdi-plus"
+      hide-details
+      clearable
+    ></v-text-field>
     <v-list class="pt-0" flat>
       <div v-for="task in tasks" :key="task.id">
         <v-list-item
@@ -36,22 +47,33 @@ export default {
   name: "Home",
   data() {
     return {
+      newTaskTitle: "",
       tasks: [
-        {
-          id: 1,
-          title: "Create Todo app",
-          done: false,
-        },
-        { id: 2, title: "Get caught in the rain", done: false },
-        {
-          id: 3,
-          title: 'Get Vue.js app "re-VUE-ed" by peers',
-          done: false,
-        },
+        // {
+        //   id: 1,
+        //   title: "Create Todo app",
+        //   done: false,
+        // },
+        // { id: 2, title: "Get caught in the rain", done: false },
+        // {
+        //   id: 3,
+        //   title: 'Get Vue.js app "re-VUE-ed" by peers',
+        //   done: false,
+        // },
       ],
     };
   },
   methods: {
+    addTask() {
+      let newTask = {
+        id: Date.now(),
+        title: this.newTaskTitle,
+        done: false,
+      };
+
+      this.tasks.push(newTask);
+      this.newTaskTitle = "";
+    },
     doneTask(id) {
       let task = this.tasks.filter((task) => task.id === id)[0];
       task.done = !task.done;
