@@ -7,7 +7,7 @@
       class="pa-3"
       outlined
       label="Add Task"
-      append-icon="mdi-plus"
+      :append-icon="newTaskTitle.length > 0 ? 'mdi-plus' : ''"
       hide-details
       clearable
     ></v-text-field>
