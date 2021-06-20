@@ -56,19 +56,7 @@ export default {
   data() {
     return {
       newTaskTitle: "",
-      tasks: [
-        // {
-        //   id: 1,
-        //   title: "Create Todo app",
-        //   done: false,
-        // },
-        // { id: 2, title: "Get caught in the rain", done: false },
-        // {
-        //   id: 3,
-        //   title: 'Get Vue.js app "re-VUE-ed" by peers',
-        //   done: false,
-        // },
-      ],
+      tasks: [],
     };
   },
   methods: {
@@ -79,7 +67,7 @@ export default {
         done: false,
       };
 
-      this.tasks.push(newTask);
+      this.tasks.unshift(newTask);
       this.newTaskTitle = "";
     },
     doneTask(id) {
