@@ -7,7 +7,7 @@
       class="pa-3"
       outlined
       label="Add Task"
-      :append-icon="newTaskTitle.length > 0 ? 'mdi-plus' : ''"
+      :append-icon="newTaskTitle ? 'mdi-plus' : ''"
       hide-details
       clearable
     ></v-text-field>
@@ -68,8 +68,30 @@ export default {
           done: false,
         };
 
-        // Add to start of array to display by newest first
-        this.tasks.unshift(newTask);
+        // Sort by newest task first
+
+        // Step 1: Add to end of array
+        this.tasks.push(newTask);
+
+        // Step 2: Sorting algorithm to sort by highest id (newest timestamp) to lowest id (oldest timestamp)
+
+        this.tasks.sort(function(a, b) {
+          let x = a.id;
+          let y = b.id;
+
+          if (x > y) {
+            return -1;
+          } else if (x < y) {
+            return 1;
+          } else {
+            return 0;
+          }
+        });
+
+        // Alternative: uncomment this instead to not use sorting algorithm, simply "unshift" to add to start of array
+        // this.tasks.unshift(newTask);
+
+        // clear task field after task rendered on page
         this.newTaskTitle = "";
       }
     },
