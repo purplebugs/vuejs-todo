@@ -2,14 +2,20 @@
   <div class="home">
     <v-list class="pt-0" flat>
       <div v-for="task in tasks" :key="task.id">
-        <v-list-item>
-          <template v-slot:default="{ active }">
+        <v-list-item
+          @click="doneTask(task.id)"
+          :class="{ 'blue lighten-5': task.done }"
+        >
+          <template v-slot:default>
             <v-list-item-action>
-              <v-checkbox :input-value="active" color="primary"></v-checkbox>
+              <v-checkbox :input-value="task.done" color="primary"></v-checkbox>
             </v-list-item-action>
 
             <v-list-item-content>
-              <v-list-item-title>{{ task.title }}</v-list-item-title>
+              <v-list-item-title
+                :class="{ 'text-decoration-line-through': task.done }"
+                >{{ task.title }}</v-list-item-title
+              >
             </v-list-item-content>
           </template>
         </v-list-item>
@@ -26,16 +32,24 @@ export default {
     return {
       tasks: [
         {
-          id: 0,
+          id: 1,
           title: "Create Todo app",
+          done: false,
         },
-        { id: 1, title: "Get caught in the rain" },
+        { id: 2, title: "Get caught in the rain", done: false },
         {
-          id: 2,
+          id: 3,
           title: 'Get Vue.js app "re-VUE-ed" by peers',
+          done: false,
         },
       ],
     };
+  },
+  methods: {
+    doneTask(id) {
+      let task = this.tasks.filter((task) => task.id === id)[0];
+      task.done = !task.done;
+    },
   },
 };
 </script>
