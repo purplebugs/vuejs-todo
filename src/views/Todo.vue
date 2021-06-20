@@ -67,6 +67,7 @@ export default {
         done: false,
       };
 
+      // Add to start of array to display by newest first
       this.tasks.unshift(newTask);
       this.newTaskTitle = "";
     },
