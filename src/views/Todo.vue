@@ -60,6 +60,7 @@ export default {
     };
   },
   methods: {
+    // TODO store tasks using https://vuex.vuejs.org/
     addTask() {
       if (this.newTaskTitle) {
         let newTask = {
@@ -71,33 +72,40 @@ export default {
         // Sort by newest task first
 
         // Step 1: Add to end of array
-        this.tasks.push(newTask);
+        // this.tasks.push(newTask);
 
         // Step 2: Sorting algorithm to sort by highest id (newest timestamp) to lowest id (oldest timestamp)
 
-        this.tasks.sort(function(a, b) {
-          let x = a.id;
-          let y = b.id;
+        // this.tasks.sort(function(a, b) {
+        //   let x = a.id;
+        //   let y = b.id;
 
-          if (x > y) {
-            return -1;
-          } else if (x < y) {
-            return 1;
-          } else {
-            return 0;
-          }
-        });
+        //   if (x > y) {
+        //     return -1;
+        //   } else if (x < y) {
+        //     return 1;
+        //   } else {
+        //     return 0;
+        //   }
+        // });
 
         // Alternative: uncomment this instead to not use sorting algorithm, simply "unshift" to add to start of array
-        // this.tasks.unshift(newTask);
+        this.tasks.unshift(newTask);
 
         // clear task field after task rendered on page
         this.newTaskTitle = "";
       }
     },
     doneTask(id) {
-      let task = this.tasks.filter((task) => task.id === id)[0];
-      task.done = !task.done;
+      this.tasks = this.tasks.map((task) => {
+        if (task.id !== id) {
+          return task;
+        }
+        return {
+          ...task,
+          done: !task.done,
+        };
+      });
     },
     deleteTask(id) {
       this.tasks = this.tasks.filter((task) => task.id !== id);
