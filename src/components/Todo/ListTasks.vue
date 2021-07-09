@@ -14,5 +14,3 @@ export default {
   Task,
 };
 </script>
-
-<style></style>
