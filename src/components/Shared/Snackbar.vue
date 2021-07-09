@@ -13,7 +13,7 @@
 <script>
 export default {
   data: () => ({
-    text: `Hello, I'm a snackbar`,
+    text: `Task added!`,
   }),
 };
 </script>
