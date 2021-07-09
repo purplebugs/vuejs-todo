@@ -2,8 +2,8 @@
   <div class="home">
     <v-text-field
       v-model="newTaskTitle"
-      @click:append="$store.commit('addTask', newTaskTitle)"
-      @keyup.enter="$store.commit('addTask', newTaskTitle)"
+      @click:append="addTask"
+      @keyup.enter="addTask"
       class="pa-3"
       outlined
       label="Add Task"
@@ -59,6 +59,10 @@ export default {
     };
   },
   methods: {
+    addTask() {
+      this.$store.commit("addTask", this.newTaskTitle);
+      this.newTaskTitle = "";
+    },
     doneTask(id) {
       this.tasks = this.tasks.map((task) => {
         if (task.id !== id) {
