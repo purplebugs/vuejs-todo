@@ -25,6 +25,17 @@ export default new Vuex.Store({
       // clear task field after task rendered on page
       // TODO again using Vuex
     },
+    doneTask(state, id) {
+      state.tasks = state.tasks.map((task) => {
+        if (task.id !== id) {
+          return task;
+        }
+        return {
+          ...task,
+          done: !task.done,
+        };
+      });
+    },
   },
   actions: {},
   modules: {},
