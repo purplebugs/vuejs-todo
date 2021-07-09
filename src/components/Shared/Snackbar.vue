@@ -3,7 +3,7 @@
     {{ $store.state.snackbar.text }}
 
     <template v-slot:action="{ attrs }">
-      <v-btn color="pink" text v-bind="attrs" @click="snackbar = false">
+      <v-btn @click="$store.commit('hideSnackbar')" text v-bind="attrs">
         Close
       </v-btn>
     </template>

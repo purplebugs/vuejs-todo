@@ -27,7 +27,6 @@ export default new Vuex.Store({
       state.tasks.unshift(newTask);
 
       // clear task field after task rendered on page
-      // TODO again using Vuex
     },
     doneTask(state, id) {
       state.tasks = state.tasks.map((task) => {
@@ -54,6 +53,9 @@ export default new Vuex.Store({
         state.snackbar.show = true;
         state.snackbar.text = text;
       }, timeout);
+    },
+    hideSnackbar(state) {
+      state.snackbar.show = false;
     },
   },
   actions: {
