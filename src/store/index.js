@@ -44,8 +44,16 @@ export default new Vuex.Store({
       state.tasks = state.tasks.filter((task) => task.id !== id);
     },
     showSnackbar(state, text) {
-      state.snackbar.show = true;
-      state.snackbar.text = text;
+      let timeout = 0;
+      if (state.snackbar.show) {
+        // if currently a snackbar showing, hide it so newer snackbar can show, with user friendly delay
+        state.snackbar.show = false;
+        timeout = 300;
+      }
+      setTimeout(() => {
+        state.snackbar.show = true;
+        state.snackbar.text = text;
+      }, timeout);
     },
   },
   actions: {
