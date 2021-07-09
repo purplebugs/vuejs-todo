@@ -5,7 +5,7 @@
       <v-card-text>Are you sure you want to delete this task?</v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn text @click="dialog = false">No</v-btn>
+        <v-btn @click="$emit('close')" text>No</v-btn>
         <v-btn
           @click="$store.dispatch('deleteTask', task.id)"
           color="red darken-1"
