@@ -4,7 +4,7 @@
       <v-card-title class="headline">Edit task?</v-card-title>
       <v-card-text>
         Are you sure you want to edit the title of this task?
-        <v-text-field v-model="taskTitle" />
+        <v-text-field @keyup.enter="saveTask" v-model="taskTitle" />
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
@@ -30,6 +30,7 @@ export default {
         title: this.taskTitle,
       };
       this.$store.commit("updateTaskTitle", payload);
+      this.$emit("close");
     },
   },
   mounted() {
