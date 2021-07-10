@@ -39,6 +39,17 @@ export default new Vuex.Store({
         };
       });
     },
+    updateTaskTitle(state, payload) {
+      state.tasks = state.tasks.map((task) => {
+        if (task.id !== payload.id) {
+          return task;
+        }
+        return {
+          ...task,
+          title: payload.title,
+        };
+      });
+    },
     deleteTask(state, id) {
       state.tasks = state.tasks.filter((task) => task.id !== id);
     },
