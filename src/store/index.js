@@ -6,9 +6,9 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     tasks: [
-      { id: 0, title: "Wake up", done: false },
-      { id: 1, title: "Buy cake", done: false },
-      { id: 2, title: "Eat cake", done: false },
+      { id: 0, title: "Wake up", done: false, dueDate: "2021-12-03" },
+      { id: 1, title: "Buy cake", done: false, dueDate: "2020-10-30" },
+      { id: 2, title: "Eat cake", done: false, dueDate: null },
     ],
     snackbar: {
       show: false,
@@ -21,6 +21,7 @@ export default new Vuex.Store({
         id: Date.now(),
         title: newTaskTitle,
         done: false,
+        dueDate: null,
       };
 
       // sort by newest task first
