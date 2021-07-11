@@ -25,6 +25,11 @@
       @close="dialogs.edit = false"
       :task="task"
     />
+    <dialog-due-date
+      v-if="dialogs.dueDate"
+      @close="dialogs.dueDate = false"
+      :task="task"
+    />
     <dialog-delete
       v-if="dialogs.delete"
       @close="dialogs.delete = false"
@@ -39,6 +44,7 @@ export default {
   data: () => ({
     dialogs: {
       edit: false,
+      dueDate: true,
       delete: false,
     },
     items: [
@@ -74,6 +80,8 @@ export default {
   },
   components: {
     "dialog-edit": require("@/components/Todo/Dialogs/DialogEdit.vue").default,
+    "dialog-due-date": require("@/components/Todo/Dialogs/DialogDueDate.vue")
+      .default,
     "dialog-delete": require("@/components/Todo/Dialogs/DialogDelete.vue")
       .default,
   },
