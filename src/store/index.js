@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     tasks: [
       { id: 0, title: "Wake up", done: false, dueDate: "2021-12-03" },
-      { id: 1, title: "Buy cake", done: false, dueDate: "2020-10-30" },
+      { id: 1, title: "Buy cake", done: false, dueDate: "2021-02-30" },
       { id: 2, title: "Eat cake", done: false, dueDate: null },
     ],
     snackbar: {
