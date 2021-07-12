@@ -24,6 +24,7 @@ export default {
 
 <style lang="sass">
 .expanding-search
+  transition: max-width 0.3s
   &.closed
     max-width: 45px
 </style>
