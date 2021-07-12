@@ -1,6 +1,9 @@
 <template>
   <v-text-field
-    class="expanding-search mt-1 closed"
+    @focus="searchClosed = false"
+    @blur="searchClosed = true"
+    class="expanding-search mt-1"
+    :class="{ closed: searchClosed }"
     placeholder="Search"
     filled
     dense
@@ -10,7 +13,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      searchClosed: true,
+    };
+  },
+};
 </script>
 
 <style lang="sass">
