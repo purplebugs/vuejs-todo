@@ -12,7 +12,10 @@ export default {
   },
   methods: {
     getDate() {
-      this.date = format(new Date(), "MMM d");
+      this.date = format(new Date(), "MMMM d, H:mm:ss");
+
+      // trigger method every second so clock shows live seconds
+      setTimeout(this.getDate, 1000);
     },
   },
   mounted() {
