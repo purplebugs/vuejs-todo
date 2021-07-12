@@ -40,6 +40,12 @@
       <v-app-bar-title>Vuetify Todo</v-app-bar-title>
 
       <v-spacer></v-spacer>
+
+      <search />
+
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
     </v-app-bar>
 
     <v-main>
@@ -59,6 +65,7 @@ export default {
     ],
   }),
   components: {
+    search: require("@/components/Tools/Search.vue").default,
     snackbar: require("@/components/Shared/Snackbar.vue").default,
   },
 };
