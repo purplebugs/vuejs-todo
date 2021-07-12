@@ -103,5 +103,15 @@ export default new Vuex.Store({
       commit("showSnackbar", "Due Date updated!");
     },
   },
+  getters: {
+    tasksFiltered(state) {
+      if (!state.search) {
+        return state.tasks;
+      }
+      return state.tasks.filter((task) =>
+        task.title.toLowerCase().includes(state.search.toLowerCase())
+      );
+    },
+  },
   modules: {},
 });
