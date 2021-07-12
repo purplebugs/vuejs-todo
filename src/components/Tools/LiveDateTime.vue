@@ -1,9 +1,24 @@
 <template>
-  <div class="text-subtitle-1 ml-4">Oct 20, 14:40</div>
+  <div class="text-subtitle-1 ml-4">{{ date }}</div>
 </template>
 
 <script>
-export default {};
+import { format } from "date-fns";
+export default {
+  data() {
+    return {
+      date: "",
+    };
+  },
+  methods: {
+    getDate() {
+      this.date = format(new Date(), "MMM d");
+    },
+  },
+  mounted() {
+    this.getDate();
+  },
+};
 </script>
 
 <style></style>
