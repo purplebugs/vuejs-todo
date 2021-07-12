@@ -1,6 +1,6 @@
 <template>
   <v-text-field
-    class="mt-1"
+    class="expanding-search mt-1 closed"
     placeholder="Search"
     filled
     dense
@@ -13,4 +13,8 @@
 export default {};
 </script>
 
-<style></style>
+<style lang="sass">
+.expanding-search
+  &.closed
+    max-width: 45px
+</style>
